@@ -42,7 +42,7 @@ var store = [{
         "teaser": null
       },{
         "title": "Proyecto Full Store",
-        "excerpt":"En este trabajo pretendemos generar un codigo que automatice el aforo de una tienda. Para ello utilizaremos el gitbloq donde podremos programar por bloques, haciendo la practica dinámica y accesible para el alumnado. El proceso se consiste en que al pasar por la puerta nuestro sensor detecta la entrada o...","categories": ["docencia"],
+        "excerpt":"En este trabajo pretendemos generar un codigo que automatice el aforo de una tienda. Para ello utilizaremos el gitbloq donde podremos programar por bloques, haciendo la practica dinámica y accesible para el alumnado. Documento en PDF El proceso se consiste en que al pasar por la puerta nuestro sensor detecta...","categories": ["docencia"],
         "tags": [],
         "url": "/docencia/2021/11/26/PracticaPandoc",
         "teaser": null
