@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="4.2.1">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2021-11-26T12:38:19+00:00</updated><id>http://localhost:4000/feed.xml</id><title type="html">CGuerra2021 Proyect website</title><subtitle>This is a Tec homework.</subtitle><author><name>CGuerra2021</name></author><entry><title type="html">Proyecto Full Store</title><link href="http://localhost:4000/docencia/2021/11/26/PracticaPandoc" rel="alternate" type="text/html" title="Proyecto Full Store" /><published>2021-11-26T00:00:00+00:00</published><updated>2021-11-26T00:00:00+00:00</updated><id>http://localhost:4000/docencia/2021/11/26/PracticaPandoc</id><content type="html" xml:base="http://localhost:4000/docencia/2021/11/26/PracticaPandoc">&lt;h6 id=&quot;en-este-trabajo-pretendemos-generar-un-codigo-que-automatice-el-aforo-de-una-tienda&quot;&gt;En este trabajo pretendemos generar un codigo que automatice el aforo de una tienda.&lt;/h6&gt;
+
+&lt;p&gt;Para ello utilizaremos el &lt;a href=&quot;https://bitbloq.cc/&quot;&gt;gitbloq&lt;/a&gt; donde podremos
+programar por bloques, haciendo la practica dinámica y accesible para el
+alumnado.&lt;/p&gt;
+
+&lt;p&gt;El proceso se consiste en que al pasar por la puerta nuestro sensor
+detecta la entrada o salida de un usuario y suma o resta hasta llegar a
+10 que es el aforo permitido, momento en el cual activara un led en rojo
+indicando que estamoa a full de capacidad. A continuación, mostramos el
+código generado, que corresponde a nuestra programación por bloques.&lt;/p&gt;
+
+&lt;div class=&quot;language-plaintext highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;uint8_t boton = 6;
+uint8_t LedFull = 8;
+uint8_t LedStatus = 10;
+uint8_t SensorOUT = 3;
+uint8_t SensorIN = 13;
+float Switch = 0;
+float Count = 0;
+float Start = 0;
+/***   Setup  ***/
+void setup() {
+    pinMode(boton, INPUT);
+    pinMode(LedFull, OUTPUT);
+    pinMode(LedStatus, OUTPUT);
+    pinMode(SensorOUT, INPUT);
+    pinMode(SensorIN, INPUT);
+}
+/***   Loop  ***/
+void loop() {
+    Switch = digitalRead(boton);
+    if (Switch == 1) {
+        digitalWrite(LedStatus, HIGH);
+        Start = Switch + 1;
+        while (Start == 1) {
+            auto InfraIN = digitalRead(SensorIN);
+            auto InfraOUT = digitalRead(SensorOUT);
+            if (InfraIN == 1) {
+                Count = InfraIN + 1;
+            }
+            if (InfraOUT == 1) {
+                Count = InfraOUT - 1;
+            }
+            while (Count &amp;gt;= 10) {
+                digitalWrite(LedFull, HIGH);
+                delay(1000);
+                digitalWrite(LedFull, LOW);
+                delay(1000);
+            }
+            if (digitalRead(boton) == 1) {
+                Start = 0;
+                Switch = 0;
+                digitalWrite(LedStatus, LOW);
+            }
+            else {
+                Start = 1;
+                Switch = 1;
+            }
+        }
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>CGuerra2021</name></author><category term="docencia" /><summary type="html">En este trabajo pretendemos generar un codigo que automatice el aforo de una tienda.</summary></entry><entry><title type="html">Procedimientos de integracion a alumnos con NEAE</title><link href="http://localhost:4000/docencia/2021/11/24/NEAE" rel="alternate" type="text/html" title="Procedimientos de integracion a alumnos con NEAE" /><published>2021-11-24T00:00:00+00:00</published><updated>2021-11-24T00:00:00+00:00</updated><id>http://localhost:4000/docencia/2021/11/24/NEAE</id><content type="html" xml:base="http://localhost:4000/docencia/2021/11/24/NEAE">&lt;p&gt;Los niños en la escuela, al mismo tiempo que adquieren nuevos conocimientos, desarrollan su carácter, su capacidad de reflexión e interacción con otras personas. En la sociedad la escuela funciona como un espacio socializador cuyo objetivo es brindar igualdad de oportunidades para todos los estudiantes.&lt;/p&gt;
+
+&lt;p&gt;Para que todas estas funciones se lleven a cabo de manera satisfactoria es importante que los padres se involucren y se comprometan con la educación de sus hijos para ayudarlos a alcanzar el éxito en la escuela. Para que los niños con necesidades educativas especiales (NEAE) puedan adaptarse también eficazmente al aula, es importante que padres y docentes trabajen en conjunto.&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;h4 id=&quot;es-importante-tener-en-cuenta-sus-necesidades-especificas-y-de-ello-abordaremos-algunos-puntos&quot;&gt;Es importante tener en cuenta sus necesidades especificas y de ello abordaremos algunos puntos:&lt;/h4&gt;
+
+&lt;h6 id=&quot;como-potenciar-la-comunicación-lingüística-en-la-escuela-infantil&quot;&gt;¿Como potenciar la comunicación lingüística en la escuela infantil?.&lt;/h6&gt;
+&lt;ul&gt;
+  &lt;li&gt;Es importante tener una &lt;strong&gt;actitud&lt;/strong&gt; que no provoque la inhibición de algo que es
+fundamental: la comunicación. Aunque los niños no se expresen correctamente se ha
+de tratar de entender el contenido global de lo que quieren comunicarnos.&lt;/li&gt;
+  &lt;li&gt;No es aconsejable llamar la atención del niño sobre su trastorno o hacerle repetir las
+palabras mal pronunciadas delante del grupo; se ha de intentar controlar posibles
+reacciones de los demás niños que pueden ser negativas. Los momentos de atención
+individual, en grupos pequeños o a través del juego son muy propicios para ayudarles
+y presentarles modelos correctos de lenguaje.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Cuidar las correcciones&lt;/strong&gt;. Es útil subrayar las incorrecciones de los niños haciéndolo sin
+interrumpir su comunicación; se puede repetir correctamente la frase después de que
+hayan terminado con el fin de presentar un modelo correcto de lo que ha dicho.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Reforzar los éxitos&lt;/strong&gt;. A menudo los niños con dificultades de lenguaje tienen una
+impresión de fracaso y pocas veces son reforzados en aquello que son capaces de
+realizar bien, por lo que es importante explicitar aquello para lo que son competentes
+como ayuda para mejorar su autoestima y su seguridad personal&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Contemplar&lt;/strong&gt; en la organización del aula la dedicación de un tiempo destinado a hablar
+de forma individual con los niños. Por pequeño que sea este tiempo tiene un gran
+efecto en la afectividad y motivación de todos los niños y niñas, especialmente cuando
+tienen alguna dificultad. Se pueden crear situaciones de diálogo individual en las
+entradas y salidas, cuando están en los rincones o txokos del aula, en momentos del
+recreo o comedor, etc., ya que estas situaciones son las que proporcionan
+informaciones más ricas y modelos más ajustados a las necesidades educativas de
+cada individuo.&lt;/li&gt;
+  &lt;li&gt;Incluir en la programación del aula juegos de atención y discriminación: ruido-silencio,
+juegos de motricidad buco-facial: soplar, hinchar globos, apagar velas; juegos de
+imitación: de ruidos; juegos de estructuración temporal: orden de los sonidos, juegos
+de lotos fonéticos, etc.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h6 id=&quot;10-consejos-para-trabajar-en-clase-con-niños-de-esta-clase&quot;&gt;10 Consejos para trabajar en clase con niños de esta clase.&lt;/h6&gt;
+&lt;ul&gt;
+  &lt;li&gt;Se debe trabajar con los niños que tienen necesidades especiales, a través de metodologia inclusiva con otros niños de su misma edad.&lt;/li&gt;
+  &lt;li&gt;Es necesario aprender de cada niño de caraa implementar un plan de enseñanza apropiado a sus necesidades y a su propio ritmo de aprendizaje.&lt;/li&gt;
+  &lt;li&gt;El profesorado debe tener la preparacion para lidiar con estos casos, teniendo sobre todo una mentalidad y metas dirigidas a la inclusión.&lt;/li&gt;
+  &lt;li&gt;Establecer metas y objetivos para identificar los recursos que será necesario implementar en la metodología de estudio de cara a que el alumnado que presenta NEAE como los que no tengan un aprendizaje fluido y adecuado.&lt;/li&gt;
+  &lt;li&gt;Padres y maestros deben estar en constante comunicación para conocer en profundidad las necesidades y los avances de cada niño, entre todos se pueden generar ideas de aprendizaje adaptadas a un niño en especial.&lt;/li&gt;
+  &lt;li&gt;Todos los alumnos, ya presenten NEAE como los demas deben tener su espacio en la participacion de las clases, esto forma un sentido de comunidad y todos pueden sentirse parte de un mismo grupo, aceptados y queridos.&lt;/li&gt;
+  &lt;li&gt;Se deben realizar actividades de integración –preferiblemente en pequeños grupos- que le permita a los estudiantes expresarse y conocese entre sí, interactuar de esta forma, le ayuda a los niños a sentirse parte de un grupo.&lt;/li&gt;
+  &lt;li&gt;El maestro debe estar pendiente de todos de modo que sea capaz de interactuar segun sus necesidades.&lt;/li&gt;
+  &lt;li&gt;En clase se deben dar instrucciones claras haciendo uso de un lenguaje simple y adaptado a cada caso.&lt;/li&gt;
+  &lt;li&gt;El uso de ejemplos que se adapten a la percepcion del alumnado es vital.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h6 id=&quot;como-diagnosticamos-de-cara-a-poder-incluir&quot;&gt;Como diagnosticamos de cara a poder incluir.&lt;/h6&gt;
+&lt;ul&gt;
+  &lt;li&gt;Identifica las dificultades que tiene el niño/a en su desempeño escolar o en su comportamiento y que están afectando a su desarrollo personal.&lt;/li&gt;
+  &lt;li&gt;Conversa con su maestro/a sobre el asunto y evalúa si existe alguna causa dentro del grupo familiar que pueda estar perjudicando su conducta.&lt;/li&gt;
+  &lt;li&gt;Solicita un diagnóstico profesional.&lt;/li&gt;
+  &lt;li&gt;Pide que tu hijo/a sea evaluado y entrega el informe a los directivos de la institución para que establezcan los mecanismos de apoyo convenientes para que reciba la ayuda necesaria dentro del aula.&lt;/li&gt;
+  &lt;li&gt;Realiza el seguimiento del apoyo escolar, debe adaptarse a las necesidades individuales de cada alumno.&lt;/li&gt;
+  &lt;li&gt;Fomenta la autoestima del niño/a. Los niños con NEAE deben comprender que son capaces de resolver diversas tareas de forma eficiente y que cuentan con potencial para superar situaciones de aprendizaje al igual que otros estudiantes.&lt;/li&gt;
+  &lt;li&gt;Ayuda a los niños a recuperar la seguridad en sí mismos. Procura motivar para que se esfuercen por alcanzar las metas, aun cuando esto implique mayores esfuerzos que los de sus compañeros. Recuérdales que tienen capacidad para hacerlo.&lt;/li&gt;
+  &lt;li&gt;Procura su socialización dentro del aula. La interacción con sus padres y con el resto de adultos es importante para el niño/a con NEAE debido a que es el espacio donde se le reconoce como individuo y como miembro de un grupo.&lt;/li&gt;
+  &lt;li&gt;En el aula aprende a compartir, a ganar y también a perder.&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>CGuerra2021</name></author><category term="docencia" /><summary type="html">Los niños en la escuela, al mismo tiempo que adquieren nuevos conocimientos, desarrollan su carácter, su capacidad de reflexión e interacción con otras personas. En la sociedad la escuela funciona como un espacio socializador cuyo objetivo es brindar igualdad de oportunidades para todos los estudiantes.</summary></entry><entry><title type="html">Aplicacion de las TIC</title><link href="http://localhost:4000/docencia/2021/11/24/TIC" rel="alternate" type="text/html" title="Aplicacion de las TIC" /><published>2021-11-24T00:00:00+00:00</published><updated>2021-11-24T00:00:00+00:00</updated><id>http://localhost:4000/docencia/2021/11/24/TIC</id><content type="html" xml:base="http://localhost:4000/docencia/2021/11/24/TIC">&lt;p&gt;En los últimos años, las tecnologías han cambiado nuestros hábitos en muchas de las facetas de nuestra vida y esas transformaciones son cada vez más rápidas. Uno de los ámbitos en los que mas han influido es en la educación y sus respectivos procesos de aprendizaje tanto individual como en equipo.&lt;/p&gt;
+
+&lt;p&gt;Las llamadas &lt;strong&gt;TIC&lt;/strong&gt; (Tecnologías de la Información y la Comunicación) están cambiando el ecosistema de la educación porque aportan grandes ventajas para todos los jugadores que intervienen en el proceso. Las TIC son herramientas que fortalecen la enseñanza y el aprendizaje, así como aumentan las oportunidades para acceder al conocimiento, desarrollar habilidades colaborativas e inculcar valores positivos a los estudiantes.&lt;/p&gt;
+
+&lt;p&gt;Sin duda, las Tecnologías de la Información y Comunicación han venido para quedarse. Entre los múltiples beneficios que aportan a la educación, las TIC están ayudando a transformar la enseñanza y la forma de relacionarse en las aulas de alumnos y profesores.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h6 id=&quot;qué-ventajas-aportan-las-tic-a-la-educación&quot;&gt;Qué ventajas aportan las TIC a la educación:&lt;/h6&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Facilitan la comprensión&lt;/strong&gt;. El uso de herramientas tecnológicas motiva y hace que los estudiantes mantengan la atención más fácilmente. Así, los contenidos se asimilan con mayor rapidez. En este sentido, una de las ventajas de las TIC en educación es que ayudan a mejorar la integración de las personas con discapacidad.
+Fomentan la alfabetización digital y audiovisual. Los alumnos adquieren las competencias digitales y audiovisuales necesarias para su futuro profesional.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Aumentan la autonomía del estudiante&lt;/strong&gt;. Otra de las ventajas de las TIC en educación es que ayudan a las personas a ser más autosuficientes y resolutivas.&lt;/li&gt;
+  &lt;li&gt;Facilitan el trabajo y colaboracion en equipo**. Puede que resulte contraintuitivo, pero una de las grandes ventajas de las TIC en educación es que fomenta la interacción interpersonal. La tecnología genera interacción entre los alumnos y favorece el trabajo en equipo. En este sentido, la gamificación resulta una herramienta educativa magnífica.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Ayudan a desarrollar un mayor pensamiento crítico&lt;/strong&gt;. Internet y las redes sociales abren al alumnado a un gran número de puntos de vista. De esta manera, las TIC pueden enseñar a debatir y aceptar las opiniones ajenas. Además, ofrecen muchas de posibilidades para intercambiar ideas con personas de otros países, lo que pone al alumno en contacto con culturas diferentes.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Flexibilizan la enseñanza&lt;/strong&gt;. Las TIC en la educación presenta la ventaja de que los alumnos pueden seguir ritmos distintos en su aprendizaje. Esto es posible gracias al acceso a contenidos adicionales o a materiales de apoyo dependiendo de las necesidades específicas de cada uno.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Agilizan la comunicación entre toda la comunidad educativa&lt;/strong&gt;. Todos los implicados en el proceso educativo, tienen acceso rápido a los mismos recursos. Se puede utilizar herramientas que permiten una interacción directa sin necesidad de desplazamientos.&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Incrementan la motivación&lt;/strong&gt;. Desde que se comenzaron a utilizar estas herramientas digitales en las aulas, los alumnos se encuentran más motivados para afrontar las diferentes áreas que estudian.&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>CGuerra2021</name></author><category term="docencia" /><summary type="html">En los últimos años, las tecnologías han cambiado nuestros hábitos en muchas de las facetas de nuestra vida y esas transformaciones son cada vez más rápidas. Uno de los ámbitos en los que mas han influido es en la educación y sus respectivos procesos de aprendizaje tanto individual como en equipo.</summary></entry><entry><title type="html">Ventajas de las TIC segun los profesores</title><link href="http://localhost:4000/docencia/2021/11/24/TIC2" rel="alternate" type="text/html" title="Ventajas de las TIC segun los profesores" /><published>2021-11-24T00:00:00+00:00</published><updated>2021-11-24T00:00:00+00:00</updated><id>http://localhost:4000/docencia/2021/11/24/TIC2</id><content type="html" xml:base="http://localhost:4000/docencia/2021/11/24/TIC2">&lt;p&gt;Un estudio llevado a cabo por Samsung en 2016 entre profesores españoles sobre el uso de la tecnología en el aula, muestra interesantes conclusiones sobre los beneficios que el uso de la tecnología en la educación puede tener en los colegios.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;“El 84% de los encuestados percibe un aumento en la creatividad y capacidad de razonamiento de sus alumnos, una mejora de su competencia en habilidades transversales y un incremento en la autonomía de los alumnos a la hora de aprender. El 74 % de los profesores participantes considera que la creciente familiarización con las TICs ayuda a los alumnos aprender a hacer un uso responsable de las nuevas tecnologías. Un 92 % también considera que el uso de nuevas tecnologías en el aula mejora las habilidades técnicas de los alumnos, preparándoles para desenvolverse con más soltura en un mundo cada vez más tecnológico”.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;Entre los profesores españoles es común la opinión de que los estudiantes son más colaborativos entre ellos (82%), muestran un mayor esfuerzo por aprender (79%) y entienden los contenidos impartidos con más facilidad (74%), gracias al uso de las nuevas tecnologías. Y el 75% percibe también una mejora en el clima general del aula.&lt;/p&gt;
+
+&lt;p&gt;Así que tres de cada cuatro profesores (77%) considera que la “mochila digital” para el aprendizaje, sustituir los libros por lecciones en formato digital a las que puedan acceder a través de un ordenador o tablet ya adoptado por muchas instituciones educativas, es sumamente interesante.&lt;/p&gt;
+
+&lt;hr /&gt;
+&lt;h6 id=&quot;entre-algunas-de-las-ventajas-de-la-introducción-de-la-tecnología-en-las-aulas-contamos-con&quot;&gt;Entre algunas de las ventajas de la introducción de la tecnología en las aulas, contamos con:&lt;/h6&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Las TIC Permiten un aprendizaje más interactivo y participativo, favoreciendo el trabajo colaborativo en las aulas.&lt;/li&gt;
+  &lt;li&gt;Se abre la posibilidad de aprender a distancia y en diferentes contextos.&lt;/li&gt;
+  &lt;li&gt;Permite una mayor flexibilidad de horarios.&lt;/li&gt;
+  &lt;li&gt;Posibilita que los alumnos puedan mantener un ritmo más personalizado a sus necesidades.&lt;/li&gt;
+  &lt;li&gt;Es más fácilmente adaptable a alumnos con necesidades especiales.&lt;/li&gt;
+  &lt;li&gt;Retos que implica el uso de la tecnología en la educación&lt;/li&gt;
+  &lt;li&gt;Aunque la tecnología puede tener un impacto muy positivo si se usa de manera correcta en los centros escolares, la implementación de su uso trae consigo algunos retos a los que tienen que hacer frente.&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>CGuerra2021</name></author><category term="docencia" /><summary type="html">Un estudio llevado a cabo por Samsung en 2016 entre profesores españoles sobre el uso de la tecnología en el aula, muestra interesantes conclusiones sobre los beneficios que el uso de la tecnología en la educación puede tener en los colegios.</summary></entry><entry><title type="html">Adaptar es integrar</title><link href="http://localhost:4000/docencia/2021/11/13/Adaptaciones" rel="alternate" type="text/html" title="Adaptar es integrar" /><published>2021-11-13T00:00:00+00:00</published><updated>2021-11-13T00:00:00+00:00</updated><id>http://localhost:4000/docencia/2021/11/13/Adaptaciones</id><content type="html" xml:base="http://localhost:4000/docencia/2021/11/13/Adaptaciones">&lt;h4 id=&quot;que-tipos-de-adaptaciones-podemos-realizar-para-lograr-integrar-a-todos-los-alumnos-dentro-del-centro-de-la-clase-de-un-grupo&quot;&gt;Que tipos de adaptaciones podemos realizar para lograr integrar a todos los alumnos dentro del centro, de la clase de un grupo…..&lt;/h4&gt;
+&lt;hr /&gt;
+&lt;h6 id=&quot;se-podria-y-deberia-enfocar-desde-diferentes-aspectos&quot;&gt;Se podria y deberia enfocar desde diferentes aspectos:&lt;/h6&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Adaptaciones en el CENTRO:
+    &lt;ul&gt;
+      &lt;li&gt;Eliminar las barreras arquitectónicas mediante el uso de rampas en lugares de acceso vital al centro.&lt;/li&gt;
+      &lt;li&gt;En general, todos aquellos medios que faciliten no sólo el acceso al edificio sino la
+movilidad dentro del mismo, en los espacios comunes como los pasillos, el patio, baño,
+comedor, aulas, etc.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Adaptaciones en el AULA:
+    &lt;ul&gt;
+      &lt;li&gt;Facilitar que los niños y niñas puedan utilizar el mismo mobiliario, las mismas mesas y
+sillas que el resto de sus compañeros, aunque sean necesarias pequeñas
+modificaciones que faciliten su integración y participación en el aula. Siempre que sea
+suficiente será preferible utilizar el mobiliario ordinario, al que se le hagan pequeñas
+modificaciones, que material más especializado pero menos integrador.&lt;/li&gt;
+      &lt;li&gt;Usar material antideslizante en las mesas de trabajo, comedor, etc., el cuál impide
+que se deslicen los platos, vasos, juegos, etc.&lt;/li&gt;
+      &lt;li&gt;Utilizar cinturones para asegurar la estabilidad de los niños con problemas en el
+control postural cuando tienen que realizar determinadas actividades.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Adaptaciones en el MATERIAL DIDACTICO:
+    &lt;ul&gt;
+      &lt;li&gt;Se pueden utilizar pivotes de diferente grosor y tamaño en los puzzles, dóminos, juegos,
+etc., para facilitar su prensión.&lt;/li&gt;
+      &lt;li&gt;Elevar las piezas y figuras perforadas de los encajes o puzzles por medio de cartón para
+facilitar su encaje.&lt;/li&gt;
+      &lt;li&gt;Usar soportes y atriles para colocar tarjetas, fotos, láminas, dibujos de sus
+pertenencias, etc.&lt;/li&gt;
+      &lt;li&gt;Utilizar tijeras especiales que facilitan la prensión.&lt;/li&gt;
+      &lt;li&gt;Usar tableros de corcho para sujetar las hojas de trabajo de los niños y niñas que
+puedan tener movimientos asociados o falta de control, sobre todo al realizar
+actividades de picado, grafías, etc.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Adaptación de materiales de acceso a la COMUNICACION
+    &lt;ul&gt;
+      &lt;li&gt;Son adecuados los Paneles de Comunicación: tarjetas de símbolos, plantillas para el
+dibujo de símbolos Bliss, etc., para iniciar su uso con aquellos alumnos que tendrán
+que desarrollar el aprendizaje de un sistema alternativo de comunicación.&lt;/li&gt;
+      &lt;li&gt;El Lenguaje de Comunicación Signado se puede utilizar como medio de comunicación
+con aquellos niños y niñas que tienen sordera profunda.&lt;/li&gt;
+      &lt;li&gt;Los Materiales Braille: juegos de percepción, de asociación, etc., adaptados a la edad
+infantil también son de utilidad para los niños y niñas con déficit visual.&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ol&gt;</content><author><name>CGuerra2021</name></author><category term="docencia" /><summary type="html">Que tipos de adaptaciones podemos realizar para lograr integrar a todos los alumnos dentro del centro, de la clase de un grupo….. Se podria y deberia enfocar desde diferentes aspectos:</summary></entry><entry><title type="html">Third Educational Post</title><link href="http://localhost:4000/docencia/2021/11/11/clase" rel="alternate" type="text/html" title="Third Educational Post" /><published>2021-11-11T00:00:00+00:00</published><updated>2021-11-11T00:00:00+00:00</updated><id>http://localhost:4000/docencia/2021/11/11/clase</id><content type="html" xml:base="http://localhost:4000/docencia/2021/11/11/clase">&lt;table&gt;
+  
+    
+    &lt;tr&gt;
+      
+        &lt;th&gt;First name&lt;/th&gt;
+      
+        &lt;th&gt;Last name&lt;/th&gt;
+      
+        &lt;th&gt;Age&lt;/th&gt;
+      
+        &lt;th&gt;Location&lt;/th&gt;
+      
+    &lt;/tr&gt;
+    
+    &lt;tr class=&quot;row1&quot;&gt;
+&lt;td class=&quot;col1&quot;&gt;
+      John
+    &lt;/td&gt;&lt;td class=&quot;col2&quot;&gt;
+      Doe
+    &lt;/td&gt;&lt;td class=&quot;col3&quot;&gt;
+      35
+    &lt;/td&gt;&lt;td class=&quot;col4&quot;&gt;
+      United States
+    &lt;/td&gt;&lt;/tr&gt;
+
+  
+    
+    &lt;tr class=&quot;row1&quot;&gt;
+&lt;td class=&quot;col1&quot;&gt;
+      Jane
+    &lt;/td&gt;&lt;td class=&quot;col2&quot;&gt;
+      Doe
+    &lt;/td&gt;&lt;td class=&quot;col3&quot;&gt;
+      29
+    &lt;/td&gt;&lt;td class=&quot;col4&quot;&gt;
+      France
+    &lt;/td&gt;&lt;/tr&gt;
+
+  
+    
+    &lt;tr class=&quot;row1&quot;&gt;
+&lt;td class=&quot;col1&quot;&gt;
+      Jack
+    &lt;/td&gt;&lt;td class=&quot;col2&quot;&gt;
+      Hill
+    &lt;/td&gt;&lt;td class=&quot;col3&quot;&gt;
+      25
+    &lt;/td&gt;&lt;td class=&quot;col4&quot;&gt;
+      Australia
+    &lt;/td&gt;&lt;/tr&gt;
+
+  
+    
+    &lt;tr class=&quot;row1&quot;&gt;
+&lt;td class=&quot;col1&quot;&gt;
+      
+    &lt;/td&gt;&lt;td class=&quot;col2&quot;&gt;
+      
+    &lt;/td&gt;&lt;td class=&quot;col3&quot;&gt;
+      
+    &lt;/td&gt;&lt;td class=&quot;col4&quot;&gt;
+      
+    &lt;/td&gt;&lt;/tr&gt;
+
+  
+&lt;/table&gt;</content><author><name>CGuerra2021</name></author><category term="docencia" /><summary type="html">First name Last name Age Location John Doe 35 United States Jane Doe 29 France Jack Hill 25 Australia</summary></entry><entry><title type="html">Second Post</title><link href="http://localhost:4000/docencia/2021/11/09/PostII" rel="alternate" type="text/html" title="Second Post" /><published>2021-11-09T00:00:00+00:00</published><updated>2021-11-09T00:00:00+00:00</updated><id>http://localhost:4000/docencia/2021/11/09/PostII</id><content type="html" xml:base="http://localhost:4000/docencia/2021/11/09/PostII">&lt;h5 id=&quot;second-post-reference-mdl&quot;&gt;Second post reference MDL&lt;/h5&gt;
+&lt;p&gt;&lt;img src=&quot;https://raw.githubusercontent.com/ULL-MFP-AET-2122/static-generator-carlos-guerra-olivera-alu0100703535/master/assets/img/17010-4k.jpg&quot; alt=&quot;GPProfile&quot; /&gt;&lt;/p&gt;
+
+&lt;h2&gt;Keep fishing&lt;/h2&gt;
+&lt;h4 id=&quot;whe-are--so-so-lost-but-we-keep-fishing&quot;&gt;Whe are  so so lost but we keep fishing&lt;/h4&gt;
+
+\[f(x) = \int_{-\infty}^\infty \hat f(\xi)\,e^{2 \pi i \xi x} \,d\xi\]
+
+&lt;h4 id=&quot;today-is-tuesday-we-get-a-whale-but-we-still-need-fishing&quot;&gt;Today is tuesday, we get a whale but we still need fishing….&lt;/h4&gt;
+
+&lt;h6 id=&quot;me-gustan-laslos-naranjas&quot;&gt;Me gustan las/los naranjas&lt;/h6&gt;
+
+&lt;h6 id=&quot;me-gustan-laslos-melones&quot;&gt;Me gustan las/los melones&lt;/h6&gt;
+
+&lt;h6 id=&quot;me-gustan-laslos-pescado&quot;&gt;Me gustan las/los pescado&lt;/h6&gt;</content><author><name>CGuerra2021</name></author><category term="docencia" /><summary type="html">Second post reference MDL</summary></entry><entry><title type="html">Primer post</title><link href="http://localhost:4000/blog/2021/11/04/aete" rel="alternate" type="text/html" title="Primer post" /><published>2021-11-04T00:00:00+00:00</published><updated>2021-11-04T00:00:00+00:00</updated><id>http://localhost:4000/blog/2021/11/04/aete</id><content type="html" xml:base="http://localhost:4000/blog/2021/11/04/aete">&lt;h1 id=&quot;-hello-mates&quot;&gt;&lt;img src=&quot;https://raw.githubusercontent.com/ULL-MFP-AET-2122/static-generator-carlos-guerra-olivera-alu0100703535/master/assets/img/hellohand.gif&quot; width=&quot;29px&quot; /&gt; Hello mates! &lt;img src=&quot;https://raw.githubusercontent.com/ULL-MFP-AET-2122/static-generator-carlos-guerra-olivera-alu0100703535/master/assets/img/worldspin.gif&quot; width=&quot;24px&quot; /&gt;&lt;/h1&gt;
+
+&lt;h2 id=&quot;this-is-mi-first-post&quot;&gt;This is mi first post&lt;/h2&gt;
+
+&lt;h1 id=&quot;about&quot;&gt;About:&lt;/h1&gt;
+&lt;p&gt;Im Carlos Guerra and im studying to be a teacher.
+ Also i am a good fisherman.
+&lt;img src=&quot;https://raw.githubusercontent.com/ULL-MFP-AET-2122/static-generator-carlos-guerra-olivera-alu0100703535/master/assets/img/M.D.M.jpg&quot; alt=&quot;GPProfile&quot; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Tabla:&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Tarea&lt;/th&gt;
+      &lt;th&gt;Practica&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;J. Web&lt;/td&gt;
+      &lt;td&gt;Github&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;In process&lt;/td&gt;
+      &lt;td&gt;En proceso&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p align=&quot;center&quot;&gt;  
+  &lt;a href=&quot;https://github.com/CGuerra2021/github-readme-stats&quot;&gt; 
+&lt;img src=&quot;https://github-readme-stats.vercel.app/api?username=CGuerra2021&amp;amp;&amp;amp;show_icons=true&amp;amp;theme=radical&quot; /&gt;
+  &lt;/a&gt;
+  &lt;/p&gt;</content><author><name>CGuerra2021</name></author><category term="blog" /><summary type="html">Hello mates! </summary></entry></feed>
